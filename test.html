@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Painted Gradient Sine Wave</title>
+  <style>
+    body {
+      margin: 0;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: "Poppins", sans-serif;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 40px;
+    }
+
+    svg {
+      width: 100%;
+      max-width: 1000px;
+      height: 200px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Painted Gradient Wave 🌊</h1>
+
+  <svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <!-- Gradient for the color -->
+      <linearGradient id="paintGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ff416c"/>
+        <stop offset="50%" stop-color="#ff4b2b"/>
+        <stop offset="100%" stop-color="#0072ff"/>
+      </linearGradient>
+
+      <!-- Gradient mask for variable stroke thickness (like a brush) -->
+      <radialGradient id="brushFade" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="white" stop-opacity="1" />
+        <stop offset="70%" stop-color="white" stop-opacity="0.7" />
+        <stop offset="100%" stop-color="white" stop-opacity="0" />
+      </radialGradient>
+
+      <mask id="brushMask">
+        <rect width="1200" height="200" fill="url(#brushFade)" />
+      </mask>
+    </defs>
+
+    <!-- Wave path -->
+    <path d="M0,100 
+             C150,40 300,160 450,100 
+             C600,40 750,160 900,100 
+             C1050,40 1200,160 1350,100"
+          fill="none"
+          stroke="url(#paintGradient)"
+          stroke-width="20"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          mask="url(#brushMask)"
+          opacity="0.9"
+    />
+  </svg>
+
+</body>
+</html>

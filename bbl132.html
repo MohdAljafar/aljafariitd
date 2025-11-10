@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture PDFs Collection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #1e293b;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #38bdf8;
+    }
+
+    .home-btn {
+      background: #38bdf8;
+      color: #0f172a;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .home-btn:hover {
+      background: #0ea5e9;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .lectures {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    a.lecture-link {
+      display: block;
+      background: #1e293b;
+      color: #e2e8f0;
+      text-decoration: none;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    a.lecture-link:hover {
+      background: #334155;
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      margin-top: 40px;
+      padding-bottom: 20px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="index.html" class="home-btn">🏠 Home</a>
+    <h1>Lecture PDFs Collection</h1>
+    <div></div>
+  </header>
+
+  <div class="container">
+    <div class="lectures">
+      <a href="Chapter2_Nonreactive Processes.pdf" target="_blank" class="lecture-link">Lec 1</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 2</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 3</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 4</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 5</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 6</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 7</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 8</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 9</a>
+      <a href="#" target="_blank" class="lecture-link">Lec 10</a>
+    </div>
+  </div>
+
+
+</body>
+</html>
