@@ -1,200 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture Library</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- parallax -->
+    <div id="bg-parallax"></div>
 
-html{
-  scroll-behavior: smooth;
-}
-body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f6f8;
-    color: #333;
-}
+    <!-- 🌟 Header -->
+    <!-- 🌟 Creative Header -->
+    <header class="hero">
+        <div class="hero-content">
+           <h1>🎓 Welcome to <span class="brush-underline">Lecture Library</span></h1>
+            <p>Your digital gateway to knowledge — organized, accessible, and inspiring.</p>
+        </div>
+    </header>
 
-/* ===== Parallax Background Layer ===== */
-#bg-parallax {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23CF6'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='2'%3E%3Cpath transform='translate(0 0)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='4' transform='rotate(0 800 450)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(0 0)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='4'%3E%3Cpath transform='translate(0 0)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='8' transform='rotate(0 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='rotate(0 1400 132)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-size: cover;
-  background-position: contain;
-  will-change: transform;
-  transform: translateY(0);
-  scale: 1;
-  opacity: 1; 
-  filter: blur(3px);
-}
+    <!-- 🧭 Navigation -->
+    <nav>
+        <a href="#courses">Courses</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
+    <!-- 🗓️ Notice Board Section -->
+    <section id="notice-board" class="notice-section">
+    <h2>📢 Latest Notices</h2>
+    <ul class="notice-list">
+        <li id="imp">BBL132 Exam 19/11/25</li>
+        <li id="imp">BBL131 Exam 20/11/25</li>
+        <li>Lab File submission 17/11/25</li>
 
-/* header */
-.hero{
-    text-align: center;
-}
-.brush-underline {
-    position: relative;
-    display: inline-block;
-    z-index: 1;
-}
-
-.brush-underline::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 100%;
-    height: 16px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 50"><path fill="%23ffe600" d="M0,30 C150,60 350,0 500,30 L500,50 L0,50 Z"></path></svg>') no-repeat center;
-    background-size: cover;
-    z-index: -1;
-    opacity: 0.85;
-}
-
-/* notice board */
-
-.notice-section {
-  background: white;
-  margin: 2rem auto;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 80%;
-  max-width: 700px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  text-align: left;
-}
-.notice-section h2 {
-  text-align: center;
-  color: #6c63ff;
-  margin-bottom: 1.5rem;
-}
-.notice-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.notice-list li {
-  border-left: 4px solid #3e63f5;
-  background: #f9f9ff;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 5px;
-}
-.notice-list #imp{
-    border-left: 4px solid #f53e3e;
-}
+    </ul>
+    </section>
 
 
 
+    
+
+    <!-- 🧑‍🏫 Courses Section -->
+    <section id="courses" class="course-grid">
+        <div class="course-card">
+            <h2>Mathematics</h2>
+            <p>Explore calculus, algebra, and geometry lectures.</p>
+            <a href="bbl132.html">📄 View PDFs</a>
+        </div>
+
+        <div class="course-card">
+            <h2>Physics</h2>
+            <p>Dive into mechanics, optics, and electromagnetism.</p>
+            <a href="#">📄 View PDFs</a>
+        </div>
+
+        <div class="course-card">
+            <h2>Computer Science</h2>
+            <p>Learn programming, data structures, and algorithms.</p>
+            <a href="#">📄 View PDFs</a>
+        </div>
+
+        <div class="course-card">
+            <h2>Chemistry</h2>
+            <p>Understand organic, inorganic, and physical chemistry.</p>
+            <a href="#">📄 View PDFs</a>
+        </div>
+
+        <div class="course-card">
+            <h2>Biology</h2>
+            <p>Study cell biology, genetics, and human anatomy.</p>
+            <a href="#">📄 View PDFs</a>
+        </div>
+
+        <div class="course-card">
+            <h2>Economics</h2>
+            <p>Get insights into micro, macro, and development economics.</p>
+            <a href="#">📄 View PDFs</a>
+        </div>
+    </section>
+
+    <!-- 🌐 About Section -->
+    <section id="about" class="about">
+        <h2>About This Site</h2>
+        <p>This website was created to make it easier for students to access and share lecture materials for different subjects.</p>
+    </section>
+
+    <!-- 📞 Contact Section -->
+    <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Submit your issue, suggestion, or feedback below.</p>
+
+    <form id="contactForm" name="submit-to-google-sheet">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="type">Message Type:</label>
+        <select id="type" name="type" required>
+        <option value="">--Select--</option>
+        <option value="Issue">Issue</option>
+        <option value="Suggestion">Suggestion</option>
+        <option value="Feedback">Feedback</option>
+        <option value="Other">Other</option>
+        </select>
+
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <p id="form-response"></p>
+    </section>
+
+    
+
+    <!-- 🪶 Footer -->
+    <footer>
+        <p>Made with ❤️ by Students for Students | © 2025 Lecture Library</p>
+        <a href="https://api.whatsapp.com/send/?phone=916307270851&text&type=phone_number&app_absent=0">WhatsApp Me</a>
+    </footer>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzOL7E3OMOGhSypEC_B_3AtWOLyM5rXM73W_adOCqk966CvJEghH18ARwsIu1ztQVrmIA/exec'; // Replace this link after Step 3
+  const form = document.forms['submit-to-google-sheet'];
+  const responseMsg = document.getElementById('form-response');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        responseMsg.innerHTML = "✅ Your msg has been sent to Aljafar!";
+        form.reset();
+      })
+      .catch(error => {
+        responseMsg.innerHTML = "❌ Error! Try again later.";
+        console.error('Error!', error.message);
+      });
+  });
+</script>
+
+<!-- parallax -->
+<script>
+const bg = document.getElementById('bg-parallax');
+window.addEventListener('scroll', () => {
+  const offset = window.scrollY * (-.2);
+  bg.style.transform = `translateY(${offset}px)`;
+});
+</script>
 
 
 
-/* Navigation */
-nav {
-    background: #222;
-    padding: 1rem;
-    text-align: center;
-}
-nav a {
-    color: #fff;
-    margin: 0 1rem;
-    text-decoration: none;
-    font-weight: bold;
-}
-nav a:hover {
-    color: #48c6ef;
-}
 
-/* Course grid */
-.course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-}
+    <script src="script.js"></script>
 
-.course-card {
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    padding: 1.5rem;
-    text-align: center;
-    transition: transform 0.2s;
-}
-.course-card:hover {
-    transform: translateY(-5px);
-}
-.course-card h2 {
-    color: #6c63ff;
-}
-.course-card a {
-    display: inline-block;
-    margin-top: 0.5rem;
-    text-decoration: none;
-    color: white;
-    background: #6c63ff;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-.course-card a:hover {
-    background: #48c6ef;
-}
-
-/* About section */
-.about, .contact {
-    background: white;
-    padding: 2rem;
-    margin: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-
-/* Contact form styling */
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 80%;
-  max-width: 500px;
-  margin: 1.5rem auto;
-}
-
-.contact input, .contact select, .contact textarea {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.contact button {
-  background: #6c63ff;
-  color: white;
-  border: none;
-  padding: 0.8rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 1rem;
-  font-weight: bold;
-}
-
-.contact button:hover {
-  background: #48c6ef;
-}
-
-#form-response {
-  text-align: center;
-  font-weight: 500;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    background: #222;
-    color: #aaa;
-    padding: 1rem;
-    margin-top: 2rem;
-}
-footer p {
-    margin: 0;
-}
-
+</body>
+</html>
