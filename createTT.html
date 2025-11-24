@@ -8,35 +8,44 @@
 <body>
 
     <style>
+        /* Base styles */
         *{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Inter', sans-serif; /* Set a clean default font */
         }
+        
+        /* Time Table container styles */
         .time-table-container{
             max-width: 900px;
             margin: 20px auto;
             display: flex;
-            /* background-color: yellow; */
         }
 
         .time-table{
             width: 95%;
             position: relative;
-            
-            /* background-color: #f9f9ffa8; */
         }
 
         .day-header, .row{
             display: flex;
         }
         .day-header div, .row div{
-            /* background-color: brown; */
             border: 1px solid rgba(191, 191, 191, 0.5);
             width: 20%;
             height: 55px;
-            /* margin: 1px; */
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            background-color: #f7f7f7;
+        }
+        .day-header div {
+            background-color: #e0e7ff; /* Light indigo background for headers */
+            font-weight: 600;
+            color: #312e81;
         }
 
         #timingBox{
@@ -47,8 +56,13 @@
 
         #timingBox h6{
             height: 55px;
-            /* border: 1px solid red; */
             text-align: end;
+            padding-right: 5px;
+            display: flex;
+            justify-content: flex-end;
+            font-weight: 500;
+            color: #6b7280;
+            font-size: 0.75rem;
         }
 
         #timingBox #first{
@@ -60,27 +74,190 @@
         /* courses box */
         .time-table .box{
             text-align: center;
-            /* color: ; */
+            color: white;
             font-size: 15px;
             font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
             width: 20%;
-            height: 55px;
+            padding: 10px 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: #62b6ed;
             border-left: 7px solid #1374b6;
             border-radius: 7px;
+            overflow: hidden; /* Important for clean text inside */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            transition: transform 0.2s;
+            cursor: pointer;
             
             position: absolute;
-            /* z-index: -1; */
-            top: 55px;
         }
-        
-        .time-table #bb{
-            top: 110px;
+        .time-table .box:hover {
+            transform: translateY(-2px);
         }
 
 
+        /* ---------------------------------- */
+        /* START: Add Course Box (NEW STYLES) */
+        /* ---------------------------------- */
+        #addCoursesBox {
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 30px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* Input fields styling */
+        #addCoursesBox input[type="text"], 
+        #addCoursesBox input[type="time"] {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        #addCoursesBox input[type="text"]:focus, 
+        #addCoursesBox input[type="time"]:focus {
+            border-color: #4f46e5; /* Indigo focus color */
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+        }
+
+        /* Placeholder text color */
+        ::placeholder {
+            color: #9ca3af;
+        }
+
+        /* Day selection box */
+        #chooseDay {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 10px 0;
+            border-top: 1px solid #e5e7eb;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        /* Checkbox and Label styling for custom appearance */
+        #chooseDay input[type="checkbox"] {
+            position: absolute; /* Hide the actual checkbox */
+            opacity: 0;
+        }
+
+        #chooseDay label {
+            cursor: pointer;
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #d1d5db;
+            color: #4b5563;
+            background-color: #f9fafb;
+            transition: all 0.2s ease-in-out;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Checked state for label */
+        #chooseDay input[type="checkbox"]:checked + label {
+            background-color: #4f46e5; /* Indigo background when checked */
+            color: white;
+            border-color: #4f46e5;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.4);
+        }
+
+        /* Button container and general button styles */
+        #btn, #downloadbtn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+            user-select: none;
+        }
         
+        /* Specific styling for the 'Add Course' button */
+        #btn {
+            background-color: #10b981; /* Emerald green */
+            color: white;
+            box-shadow: 0 4px #059669; /* Darker green for a 3D effect */
+        }
+
+        #btn:hover {
+            background-color: #059669;
+        }
+
+        #btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #059669;
+        }
+
+        /* Specific styling for the 'Download' button */
+        #downloadbtn {
+            background-color: #f59e0b; /* Amber/Yellow for download */
+            color: white;
+            box-shadow: 0 4px #d97706; /* Darker amber */
+        }
+
+        #downloadbtn:hover {
+            background-color: #d97706;
+        }
+
+        #downloadbtn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px #d97706;
+        }
+        
+        /* ---------------------------------- */
+        /* END: Add Course Box (NEW STYLES) */
+        /* ---------------------------------- */
+
+
+        /* Responsive layout for mobile */
+        @media (max-width: 600px) {
+            .time-table-container {
+                flex-direction: column;
+                max-width: 100%;
+                margin: 10px;
+            }
+            .time-table {
+                width: 100%;
+                overflow-x: auto;
+            }
+            #timingBox {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-around;
+            }
+            #timingBox h6 {
+                width: auto;
+                padding-right: 0;
+                justify-content: center;
+                height: 30px;
+            }
+            #addCoursesBox {
+                max-width: 95%;
+                margin: 20px auto;
+            }
+            #chooseDay {
+                justify-content: center;
+            }
+            #chooseDay label {
+                flex-grow: 1;
+                text-align: center;
+            }
+        }
+
     </style>
     
 
@@ -173,39 +350,37 @@
             
 
             
-            <div class="box">BBL135</div>
-            <div class="box" id="bb">BBL135</div>
+            <!-- <div class="box">BBL135</div>
+            <div class="box" id="bb">BBL135</div> -->
         </div>
     </div>
 
     <div id="addCoursesBox">
-        <input id="coursename" type="text" placeholder="Course Name">
-        <input id="coursetime" type="time" placeholder="Time">
-        <input id="coursedur" type="text" placeholder="Duration(in hour)">
+        <input id="coursename" type="text" placeholder="Course Name (e.g., CS 101)">
+        <input id="coursetime" type="time" placeholder="Start Time">
+        <input id="coursedur" type="text" placeholder="Duration (in hours, e.g., 1.5)">
 
         <div id="chooseDay">
-            <input type="radio" id="mon" name="fav_language" value="mon">
-            <label for="Monday">Monday</label>
+            <input type="checkbox" id="mon">
+            <label for="mon">Monday</label>
 
-            <input type="radio" id="mon" name="fav_language" value="mon">
-            <label for="Monday">Tuesday</label>
+            <input type="checkbox" id="tue">
+            <label for="tue">Tuesday</label>
 
-            <input type="radio" id="mon" name="fav_language" value="mon">
-            <label for="Monday">Tuesday</label>
+            <input type="checkbox" id="wed">
+            <label for="wed">Wednesday</label>
 
-            <input type="radio" id="mon" name="fav_language" value="mon">
-            <label for="Monday">Tuesday</label>
+            <input type="checkbox" id="thur">
+            <label for="thur">Thursday</label>
 
-            <input type="radio" id="mon" name="fav_language" value="mon">
-            <label for="Monday">Tuesday</label>
+            <input type="checkbox" id="fri">
+            <label for="fri">Friday</label>
         </div>
 
 
+        <div id="btn">Add Course to Timetable</div>
 
-
-        <div id="btn">click</div>
-
-        <div id="downloadbtn">DDD</div>
+        <div id="downloadbtn">Download as JPG</div>
 
 
     </div>
@@ -216,34 +391,70 @@
     
     let btn = document.querySelector("#btn");
     btn.onclick = () => {
-        let x = document.createElement("div");
-        x.setAttribute("class", "box");
 
-        var courseName = document.querySelector("#coursename").value;
 
-        var courseTime = document.querySelector("#coursetime").value;
+        
 
-        var CourseHeight = (parseFloat(document.querySelector("#coursedur").value) * 55);
-        CourseHeight.toString();
-        CourseHeight += "px";
-
-        var fromTop = (parseInt(courseTime.substring(0,2))-7)*55;
-        var min = courseTime.substring(3,5);
-        if(min=="30"){
-            fromTop = fromTop+(55/2);
+        const myDictionary={
+            "mon": 0,
+            "tue": 20,
+            "wed": 40,
+            "thur": 60,
+            "fri": 80,
         }
-        fromTop.toString();
-        fromTop = fromTop+"px";
 
 
-        x.innerText = courseName;
-        x.style.top = fromTop;
-        x.style.height = CourseHeight;
-        x.style.left = "20%";
+        function addCourseBox(fromLeft) {
+            // adding course box
+            let x = document.createElement("div");
+            x.setAttribute("class", "box");
+
+            var courseName = document.querySelector("#coursename").value;
+
+            var courseTime = document.querySelector("#coursetime").value;
+
+            var CourseHeight = (parseFloat(document.querySelector("#coursedur").value) * 55);
+            CourseHeight.toString();
+            CourseHeight += "px";
+
+            var fromTop = (parseInt(courseTime.substring(0,2))-7)*55;
+            var min = courseTime.substring(3,5);
+            if(min=="30"){
+                fromTop = fromTop+(55/2);
+            }
+            fromTop.toString();
+            fromTop = fromTop+"px";
 
 
-        let node = document.querySelector(".time-table");
-        node.append(x);
+            x.innerText = courseName;
+            x.style.top = fromTop;
+            x.style.height = CourseHeight;
+
+            fromTop.toString();
+            x.style.left = fromLeft+"%";
+
+
+            let node = document.querySelector(".time-table");
+            node.append(x);
+
+            console.log("Boxed"+fromLeft);
+        }
+
+        var d = document.querySelector("#chooseDay");
+        for(var i=0; i<5; i++){
+            // The structure is input, label, input, label, ...
+            // Checkboxes are at 2*i
+            if(d.children[2*i].checked){
+                var day = (d.children[2*i].id);
+                addCourseBox(myDictionary[day]);
+                console.log(myDictionary[day]);
+            }
+            
+
+        }
+
+
+        
 
         console.log("DONE");
     }
@@ -256,6 +467,7 @@
     document.getElementById('downloadbtn').addEventListener('click', function() {
     const timetable = document.getElementById("time-table-container"); //works only on Id
 
+    // The html2canvas library is loaded via script tag above
     html2canvas(timetable).then(canvas => {
         // Convert canvas to JPG
         let image = canvas.toDataURL("image/jpeg", 1.0);
