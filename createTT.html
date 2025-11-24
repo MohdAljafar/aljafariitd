@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .time-table-container{
+            max-width: 900px;
+            margin: 20px auto;
+            display: flex;
+            /* background-color: yellow; */
+        }
+
+        .time-table{
+            width: 95%;
+            position: relative;
+            
+            /* background-color: #f9f9ffa8; */
+        }
+
+        .day-header, .row{
+            display: flex;
+        }
+        .day-header div, .row div{
+            /* background-color: brown; */
+            border: 1px solid rgba(191, 191, 191, 0.5);
+            width: 20%;
+            height: 55px;
+            /* margin: 1px; */
+            text-align: center;
+        }
+
+        #timingBox{
+            width: 5%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #timingBox h6{
+            height: 55px;
+            /* border: 1px solid red; */
+            text-align: end;
+        }
+
+        #timingBox #first{
+            height: 50px;
+        }
+
+
+
+        /* courses box */
+        .time-table .box{
+            text-align: center;
+            /* color: ; */
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            width: 20%;
+            height: 55px;
+            background-color: #62b6ed;
+            border-left: 7px solid #1374b6;
+            border-radius: 7px;
+            
+            position: absolute;
+            /* z-index: -1; */
+            top: 55px;
+        }
+        
+        .time-table #bb{
+            top: 110px;
+        }
+
+
+        
+    </style>
+    
+
+
+    <div class="time-table-container" id="time-table-container">
+        <div id="timingBox">
+            <h6 id="first"></h6>
+            <h6>8:00</h6>
+            <h6>9:00</h6>
+            <h6>10:00</h6>
+            <h6>11:00</h6>
+            <h6>12:00</h6>
+            <h6>1:00</h6>
+            <h6>2:00</h6>
+            <h6>3:00</h6>
+            <h6>4:00</h6>
+            <!-- <h6>5:00</h6> -->
+        </div>
+        <div class="time-table">
+            <div class="day-header">
+                <div>Monday</div>
+                <div>Tuesday</div>
+                <div>Wednesday</div>
+                <div>Thursday</div>
+                <div>Friday</div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="row" id="row10-11">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            
+
+            
+            <div class="box">BBL135</div>
+            <div class="box" id="bb">BBL135</div>
+        </div>
+    </div>
+
+    <div id="addCoursesBox">
+        <input id="coursename" type="text" placeholder="Course Name">
+        <input id="coursetime" type="time" placeholder="Time">
+        <input id="coursedur" type="text" placeholder="Duration(in hour)">
+
+        <div id="chooseDay">
+            <input type="radio" id="mon" name="fav_language" value="mon">
+            <label for="Monday">Monday</label>
+
+            <input type="radio" id="mon" name="fav_language" value="mon">
+            <label for="Monday">Tuesday</label>
+
+            <input type="radio" id="mon" name="fav_language" value="mon">
+            <label for="Monday">Tuesday</label>
+
+            <input type="radio" id="mon" name="fav_language" value="mon">
+            <label for="Monday">Tuesday</label>
+
+            <input type="radio" id="mon" name="fav_language" value="mon">
+            <label for="Monday">Tuesday</label>
+        </div>
+
+
+
+
+        <div id="btn">click</div>
+
+        <div id="downloadbtn">DDD</div>
+
+
+    </div>
+
+
+<script>
+    
+    
+    let btn = document.querySelector("#btn");
+    btn.onclick = () => {
+        let x = document.createElement("div");
+        x.setAttribute("class", "box");
+
+        var courseName = document.querySelector("#coursename").value;
+
+        var courseTime = document.querySelector("#coursetime").value;
+
+        var CourseHeight = (parseFloat(document.querySelector("#coursedur").value) * 55);
+        CourseHeight.toString();
+        CourseHeight += "px";
+
+        var fromTop = (parseInt(courseTime.substring(0,2))-7)*55;
+        var min = courseTime.substring(3,5);
+        if(min=="30"){
+            fromTop = fromTop+(55/2);
+        }
+        fromTop.toString();
+        fromTop = fromTop+"px";
+
+
+        x.innerText = courseName;
+        x.style.top = fromTop;
+        x.style.height = CourseHeight;
+        x.style.left = "20%";
+
+
+        let node = document.querySelector(".time-table");
+        node.append(x);
+
+        console.log("DONE");
+    }
+
+
+
+
+    // downloading script as jpg
+
+    document.getElementById('downloadbtn').addEventListener('click', function() {
+    const timetable = document.getElementById("time-table-container"); //works only on Id
+
+    html2canvas(timetable).then(canvas => {
+        // Convert canvas to JPG
+        let image = canvas.toDataURL("image/jpeg", 1.0);
+
+        // Create a download link
+        let link = document.createElement("a");
+        link.download = "timetable.jpg";
+        link.href = image;
+        link.click();
+    });
+    });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- end downloading script -->
+
+</body>
+</html>
